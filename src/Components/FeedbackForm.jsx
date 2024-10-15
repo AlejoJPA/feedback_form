@@ -1,9 +1,23 @@
 import React, { useState } from 'react';
 import './FeedbackForm.css'; // Import CSS for styling
 
-
+/* State initialization (formData): name, email and feedback = '' (empty stream)*/
 const FeedbackForm = () => {
-/* Input components: 1) input box for username, 2) input box for user email ID, 3) input box for user feedback */
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    feedback: ''
+});
+
+/*event handler (handleChange) initialization. Updates are intialized (setFormData) */
+const handleChange = (event) => {
+    const {name, value} = event.target;
+    setFormData({...formData, [name]:value});
+};
+
+
+/* Input components (attributes): 1) input box for username, 2) input box for user email ID, 3) input box for user feedback (<textarea>).
+ handleChange caller (onChage) ist set*/
   return (
     <>
     <nav>
@@ -16,17 +30,23 @@ const FeedbackForm = () => {
           type="text"
           name="name" 
           placeholder="Your Name">
+          value={formDate.name}
+          onChage={handleChange}
         </input>
 
         <input 
           type="email" 
           name="email" 
           placeholder="Your Email">
+          value={formDate.email}
+          onChage={handleChange}
         </input>
 
         <textarea 
           name="feedback" 
           placeholder="Your Feedback">
+          value={formDate.feedback}
+          onChage={handleChange}
         </textarea>
 
         <button type="submit">Submit Feedback</button>
