@@ -30,7 +30,7 @@ const handleSubmit = (event) => {
 
 
 /* Input components (attributes): 1) input box for username, 2) input box for user email ID, 3) input box for user feedback (<textarea>).
- handleChange caller (onChage) ist set
+ handleChange caller (onChange) ist set
  handleSubmit caller ist set
  */
   return (
@@ -44,25 +44,26 @@ const handleSubmit = (event) => {
         <input 
           type="text"
           name="name" 
-          placeholder="Your Name">
-          value={formDate.name}
-          onChage={handleChange}
-        </input>
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+        
 
         <input 
           type="email" 
           name="email" 
-          placeholder="Your Email">
-          value={formDate.email}
-          onChage={handleChange}
-        </input>
-
+          placeholder="Your Email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+        
         <textarea 
           name="feedback" 
-          placeholder="Your Feedback">
-          value={formDate.feedback}
-          onChage={handleChange}
-        </textarea>
+          placeholder="Your Feedback"
+          value={formData.feedback}
+          onChange={handleChange}
+          /></textarea>
 
         <button type="submit">Submit Feedback</button>
    
