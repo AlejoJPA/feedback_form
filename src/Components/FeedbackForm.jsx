@@ -7,18 +7,18 @@ const FeedbackForm = () => {
     name: '',
     email: '',
     feedback: ''
-});
+  });
 
-/*event handler (handleChange) initialization. Updates are intialized (setFormData) */
-const handleChange = (event) => {
+  /*event handler (handleChange) initialization. Updates are intialized (setFormData) */
+  const handleChange = (event) => {
     const {name, value} = event.target;
     setFormData({...formData, [name]:value});
-};
+  };
 
-/*Submission button, confirmation message*/
-const handleSubmit = (event) => {
-  event.preventDefault();
-  const confirmationMessage = `Name: ${formData.name} 
+  /*Submission button, confirmation message*/
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const confirmationMessage = `Name: ${formData.name} 
                               Email: ${formData.email} 
                               Feedback: ${formData.feedback}`;
   const isConfirmed = window.confirm(`Please confirm your details:\n\n${confirmationMessage}`);
@@ -26,10 +26,10 @@ const handleSubmit = (event) => {
       console.log('Submitting feedback:', formData); 
       setFormData({name: '', email: '', feedback: ''});
       alert('Thank you for your valuable feedback!'); }
-};
+  };
 
 
-/* Input components (attributes): 1) input box for username, 2) input box for user email ID, 3) input box for user feedback (<textarea>).
+  /* Input components (attributes): 1) input box for username, 2) input box for user email ID, 3) input box for user feedback (<textarea>).
  handleChange caller (onChange) ist set
  handleSubmit caller ist set
  */
@@ -48,8 +48,6 @@ const handleSubmit = (event) => {
           value={formData.name}
           onChange={handleChange}
         />
-        
-
         <input 
           type="email" 
           name="email" 
@@ -57,16 +55,13 @@ const handleSubmit = (event) => {
           value={formData.email}
           onChange={handleChange}
         />
-        
         <textarea 
           name="feedback" 
           placeholder="Your Feedback"
           value={formData.feedback}
           onChange={handleChange}
-          /></textarea>
-
+        />
         <button type="submit">Submit Feedback</button>
-   
       </form>
     </>
   );
