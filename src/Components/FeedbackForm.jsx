@@ -15,15 +15,30 @@ const handleChange = (event) => {
     setFormData({...formData, [name]:value});
 };
 
+/*Submission button, confirmation message*/
+const handleSubmit = (event) => {
+  event.preventDefault();
+  const confirmationMessage = `Name: ${formData.name} 
+                              Email: ${formData.email} 
+                              Feedback: ${formData.feedback}`;
+  const isConfirmed = window.confirm(`Please confirm your details:\n\n${confirmationMessage}`);
+    if (isConfirmed) {
+      console.log('Submitting feedback:', formData); 
+      setFormData({name: '', email: '', feedback: ''});
+      alert('Thank you for your valuable feedback!'); }
+};
+
 
 /* Input components (attributes): 1) input box for username, 2) input box for user email ID, 3) input box for user feedback (<textarea>).
- handleChange caller (onChage) ist set*/
+ handleChange caller (onChage) ist set
+ handleSubmit caller ist set
+ */
   return (
     <>
     <nav>
     Tell Us What You Think
     </nav>
-      <form className="feedback-form">
+      <form onSubmit={handleSubmit} className="feedback-form">
         <h2>We'd Love to Hear From You!</h2>
         <p>Please share your feedback with us.</p>
         <input 
